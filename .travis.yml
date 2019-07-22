@@ -10,7 +10,7 @@ script:
 
 before_deploy:
   - cd build/clapp-player/
-  - zip -r **/clapp-player *
+  - zip -r ../clapp-player *
 
 deploy:
   provider: releases
