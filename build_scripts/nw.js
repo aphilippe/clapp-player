@@ -15,6 +15,12 @@ if (func == null)
     console.log("error use -r or -b arguments");
 }
 
+try{
+    fs.mkdirSync("bin");
+} catch(err) {
+    if (err.code !== 'EEXIST') throw err;
+}
+
 createPackageFile();
 copyHtmlFiles();
 
