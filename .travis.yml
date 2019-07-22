@@ -9,7 +9,7 @@ script:
   - yarn run build
 
 before_deploy:
-  - zip clapp-player build/clapp-player
+  - zip -r -j clapp-player build/clapp-player/*
 
 deploy:
   provider: releases
