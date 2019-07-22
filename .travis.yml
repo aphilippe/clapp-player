@@ -9,10 +9,12 @@ script:
   - yarn run build
 
 before_deploy:
-  - zip -r clapp-player build/clapp-player
+  - zip clapp-player build/clapp-player
 
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN_ACCESS
   file: "clapp-player.zip"
   skip_cleanup: true
+  # on:
+  #   tags: true
