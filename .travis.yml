@@ -13,7 +13,3 @@ deploy:
   api_key: $GITHUB_TOKEN_ACCESS
   file: "clapp-player.zip"
   skip_cleanup: true
-
-branches:
-  only:
-  - master
