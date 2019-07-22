@@ -10,12 +10,14 @@ script:
 
 before_deploy:
   - cd build/clapp-player/
-  - zip -r ../clapp-player *
+  - zip -r ../../clapp-player *
+  - pwd
+  - ls ../..
 
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN_ACCESS
-  file: "build/clapp-player.zip"
+  file: "clapp-player.zip"
   skip_cleanup: true
   # on:
   #   tags: true
