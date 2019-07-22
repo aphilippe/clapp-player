@@ -1,0 +1,16 @@
+{
+  "name": "clapp-player",
+  "version": "0.1.0",
+  "description": "A music and video player that work with website (e.g. youtube, etc)",
+  "main": "index.html",
+  "repository": "https://github.com/aphilippe/clapp-player.git",
+  "author": "adrien philippe",
+  "license": "MIT",
+  "dependencies": {
+    "nw-builder": "^3.5.7"
+  },
+  "scripts": {
+    "start": "node build_scripts/nw.js -r",
+    "build": "node build_scripts/nw.js -b"
+  }
+}
