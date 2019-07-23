@@ -17,5 +17,5 @@ deploy:
   api_key: $GITHUB_TOKEN_ACCESS
   file: "../clapp-player-win64.zip"
   skip_cleanup: true
-  # on:
-  #   tags: true
+  on:
+    tags: true
