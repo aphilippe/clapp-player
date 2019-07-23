@@ -23,6 +23,7 @@ try{
 
 createPackageFile();
 copyHtmlFiles();
+copyIconFile();
 
 var builder = createBuilder();
 func(builder);
@@ -62,7 +63,10 @@ function createPackageFile () {
     var package = {
         "name" : process.env.npm_package_name,
         "version" : process.env.npm_package_version,
-        "main": "index.html"
+        "main": "index.html",
+        "window" : {
+            "icon" : "./icon.png"
+        }
     }
 
     fs.writeFileSync("./bin/package.json", JSON.stringify(package), 'utf-8');
@@ -71,4 +75,9 @@ function createPackageFile () {
 function copyHtmlFiles()
 {
     fs.copyFileSync("./html/index.html", "./bin/index.html");
+}
+
+function copyIconFile()
+{
+    fs.copyFileSync("./icons/icon.png", "./bin/icon.png");
 }
