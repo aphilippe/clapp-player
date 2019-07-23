@@ -9,8 +9,8 @@ script:
   - yarn run build
 
 before_deploy:
-  - cd build/clapp-player/
-  - zip -r ../clapp-player *
+  - cd build/clapp-player/win64
+  - zip -r ../clapp-player-win64 *
 
 deploy:
   provider: releases
