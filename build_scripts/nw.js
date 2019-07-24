@@ -51,7 +51,8 @@ function createBuilder() {
     var nw = new NwBuilder({
         files: './bin/**', // use the glob format
         platforms: ['win64'],
-        version: '0.38.4'
+        version: '0.38.4',
+        winIco: "./icons/icon.ico"
     });
 
     nw.on('log', console.log);
