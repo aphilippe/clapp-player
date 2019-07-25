@@ -5,6 +5,9 @@ node_js:
 os:
   - windows
 
+env:
+  - YARN_GPG=no
+
 install:
   - yarn install
 
