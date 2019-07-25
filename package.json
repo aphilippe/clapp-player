@@ -7,11 +7,14 @@
   "author": "adrien philippe",
   "license": "MIT",
   "dependencies": {
-    "nw-builder": "^3.5.7"
+    "haxe": "^5.0.10",
+    "lix": "^15.4.1",
+    "nw-builder": "^3.5.7",
+    "stable": "^0.1.8"
   },
   "scripts": {
-    "start": "node build_scripts/nw.js -r",
-    "build": "node build_scripts/nw.js -b",
+    "start": "haxe build.hxml && node build_scripts/nw.js -r",
+    "build": "haxe build.hxml && node build_scripts/nw.js -b",
     "postversion": "git push && git push --tags"
   }
 }
