@@ -17,12 +17,13 @@ script:
 before_deploy:
   # - cd build/clapp-player/win64
   # - zip -r ../clapp-player-win64 *
-  - 7z a clapp-player-win64.zip .\build\clapp-player\win64\*
+  - ls .\build\clapp-player\win64\
+  - 7z a clapp-player-win64 .\build\clapp-player\win64\*
 
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN_ACCESS
-  file: "clapp-player-win64.zip"
+  file: "clapp-player-win64.7z"
   skip_cleanup: true
   on:
     tags: true
