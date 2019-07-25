@@ -15,13 +15,14 @@ script:
   - yarn run build
 
 before_deploy:
-  - cd build/clapp-player/win64
-  - zip -r ../clapp-player-win64 *
+  # - cd build/clapp-player/win64
+  # - zip -r ../clapp-player-win64 *
+  - Compress-Archive .\build\clapp-player\win64\* clapp-player-win64.zip
 
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN_ACCESS
-  file: "../clapp-player-win64.zip"
+  file: "clapp-player-win64.zip"
   skip_cleanup: true
   on:
     tags: true
