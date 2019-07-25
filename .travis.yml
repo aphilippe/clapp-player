@@ -17,8 +17,8 @@ script:
 before_deploy:
   # - cd build/clapp-player/win64
   # - zip -r ../clapp-player-win64 *
-  - ls .\build\clapp-player\win64\
-  - 7z a clapp-player-win64 .\build\clapp-player\win64\*
+  - ls ./build/clapp-player/win64/
+  - 7z a clapp-player-win64 ./build/clapp-player/win64/*
 
 deploy:
   provider: releases
