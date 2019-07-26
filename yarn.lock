@@ -2,6 +2,15 @@
 # yarn lockfile v1
 
 
+"@cliqz/adblocker@^0.12.0":
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/@cliqz/adblocker/-/adblocker-0.12.0.tgz#16b8a0ce81d764d059686a41ebb7b21efaec0a7d"
+  integrity sha512-+CklJUQujKc6MpXCAVGHkvhcSD9UMrf7oge6fh7stDRUDuT6V3jXjYavL3//pOZ/KqzdyuXtcNDNtTqNvEakiQ==
+  dependencies:
+    tldts-experimental "^5.3.0"
+    tslib "^1.10.0"
+    tsmaz "^1.2.2"
+
 "@sindresorhus/is@^0.7.0":
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
@@ -2088,6 +2097,18 @@ timed-out@^4.0.0, timed-out@^4.0.1:
   resolved "https://registry.yarnpkg.com/timed-out/-/timed-out-4.0.1.tgz#f32eacac5a175bea25d7fab565ab3ed8741ef56f"
   integrity sha1-8y6srFoXW+ol1/q1Zas+2HQe9W8=
 
+tldts-core@^5.3.1:
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/tldts-core/-/tldts-core-5.3.1.tgz#040450d7148107880ba9020e77b3b28a6cc5d9db"
+  integrity sha512-z8C2wcT2XvSgk5p0HWapXPkvvKG7E8Jei71N+9Mpp9Eoh2/wjtQPhDeENSuzHNmjTdRz6KFIcM7aWTB+7g0OyA==
+
+tldts-experimental@^5.3.0:
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/tldts-experimental/-/tldts-experimental-5.3.1.tgz#8e0ca652aafc37f831c4a68d123a8f3345a380fc"
+  integrity sha512-sbNyh4NCN08kwnVKNTcTiPxMlAGK9PqnXDzIAPLHWflsD8Kyd7CnohgIXExd9CN91paldIWRR7sOtVmMfw5SfQ==
+  dependencies:
+    tldts-core "^5.3.1"
+
 to-buffer@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/to-buffer/-/to-buffer-1.1.1.tgz#493bd48f62d7c43fcded313a03dcadb2e1213a80"
@@ -2112,6 +2133,16 @@ trim-repeated@^1.0.0:
   integrity sha1-42RqLqTokTEr9+rObPsFOAvAHCE=
   dependencies:
     escape-string-regexp "^1.0.2"
+
+tslib@^1.10.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
+  integrity sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
+
+tsmaz@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/tsmaz/-/tsmaz-1.2.2.tgz#74683dd71d6440b1ac2c1dd999175ce4821967f1"
+  integrity sha512-eqet1z09AtigITA7RyTiehtqNSWdXYp58XSkf7fpcLatYZDE0NmC/EL4LnbI9VUpYZPeMuIGLhW6jSNSZo62jg==
 
 tunnel-agent@^0.6.0:
   version "0.6.0"
