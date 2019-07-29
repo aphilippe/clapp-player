@@ -14,7 +14,7 @@ class Main {
         Browser.document.body.onload = function(_) {
             var webview:Webview = cast Browser.document.getElementById("mainwebview");
 
-            webview.Request.onBeforeRequest.addListener(function (request:RequestB) {
+            webview.Request.onBeforeRequest.addListener(function (request:WebRequestDetails) {
                 var cliqzRequest = Request.fromRawDetails(request);
 
                 return {cancel:engine.match(cliqzRequest).match};

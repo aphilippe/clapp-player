@@ -1,10 +1,10 @@
 package externs;
 
-import externs.Webview.RequestB;
+import externs.Webview.WebRequestDetails;
 
 @:jsRequire("@cliqz/adblocker", "Request")
 extern class Request {
-    public static function fromRawDetails(request:RequestB):Request;
+    public static function fromRawDetails(request:WebRequestDetails):Request;
 }
 
 
@@ -12,5 +12,7 @@ extern class Request {
 extern class FiltersEngine {
     public static function parse(filters:String): FiltersEngine;
 
-    public function match(request:Request):{match:Bool};
+    public function match(request:Request):MatchReturnValue;
 }
+
+extern typedef MatchReturnValue = {match:Bool}
