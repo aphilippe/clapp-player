@@ -3,20 +3,30 @@ package externs;
 extern class Webview
 {
     public var src(default, default):String;
-    @:native("request") public var Request(default, null):WebviewRequest;
+    @:native("request") public var Request(default, null):WebRequest;
 }
 
-extern class WebviewRequest
+extern class WebRequest
 {
-    public var onBeforeRequest:WebviewRequestListenerCollection;
+    public var onBeforeRequest:WebRequestEvent;
 }
 
-extern class WebviewRequestListenerCollection
+extern class WebRequestEvent
 {
-    public function addListener(fn:RequestB->{cancel:Bool}, filter:{urls:Array<String>}, plop:Array<String>):Void;
+    public function addListener(fn:WebRequestDetails->WebRequestEventReturnValue, filter:WebRequestFilter, extraInfoSpec:Array<String>):Void;
 }
 
-extern class RequestB
+extern class WebRequestDetails
 {
-    public var url:String;
+    public var url(default, default):String;
+}
+
+extern typedef WebRequestEventReturnValue = 
+{
+    var cancel(default, default):Bool;
+}
+
+extern typedef WebRequestFilter = 
+{
+    public var urls(default, default):Array<String>;
 }
