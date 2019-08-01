@@ -25,6 +25,9 @@ createPackageFile();
 copyHtmlFiles();
 copyIconFile();
 
+var child_process = require('child_process');
+child_process.execSync("cd ./bin && yarn && cd ..");
+
 var builder = createBuilder();
 func(builder);
 
