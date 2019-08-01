@@ -68,6 +68,9 @@ function createPackageFile () {
         "main": "index.html",
         "window" : {
             "icon" : "./icon.png"
+        },
+        "dependencies": {
+            "@cliqz/adblocker": "^0.12.0"
         }
     }
 
