@@ -40,6 +40,7 @@ function build(nw) {
     nw.options.flavor = "normal";
 
     nw.build().then(function () {
+        fs.copyFileSync("./binaries/ffmpeg.dll", "./build/clapp-player/win64/ffmpeg.dll");
         console.log('all done!');
     }).catch(function (error) {
         console.error(error);
