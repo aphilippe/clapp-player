@@ -24,9 +24,7 @@ try{
 createPackageFile();
 copyHtmlFiles();
 copyIconFile();
-
-var child_process = require('child_process');
-child_process.execSync("cd ./bin && yarn && cd ..");
+copyDataFiles();
 
 var builder = createBuilder();
 func(builder);
@@ -88,4 +86,9 @@ function copyHtmlFiles()
 function copyIconFile()
 {
     fs.copyFileSync("./icons/icon.png", "./bin/icon.png");
+}
+
+function copyDataFiles()
+{
+    fs.copyFileSync("./data/easylist.txt", "./bin/easylist.txt");
 }
