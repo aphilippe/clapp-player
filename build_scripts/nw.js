@@ -10,6 +10,8 @@ var func = {
     "-b" : build
 }[process.argv[2]];
 
+var isTest = process.argv[2] == "-r";
+
 if (func == null)
 {
     console.log("error use -r or -b arguments");
@@ -21,7 +23,7 @@ try{
     if (err.code !== 'EEXIST') throw err;
 }
 
-createPackageFile();
+createPackageFile(isTest);
 copyHtmlFiles();
 copyIconFile();
 copyDataFiles();
@@ -62,9 +64,9 @@ function createBuilder() {
     return nw;
 }
 
-function createPackageFile () {
+function createPackageFile (isTest) {
     var package = {
-        "name" : process.env.npm_package_name,
+        "name" : process.env.npm_package_name + isTest ? "_test" : "",
         "version" : process.env.npm_package_version,
         "main": "index.html",
         "window" : {
