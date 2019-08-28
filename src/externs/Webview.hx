@@ -1,10 +1,14 @@
 package externs;
 
-extern class Webview
+extern class Webview extends js.html.Element
 {
     public var src(default, default):String;
     @:native("request") public var Request(default, null):WebRequest;
+    public function executeScript(option:ExecuteScriptOption):Void;
+    public function showDevTools(show:Bool):Void;    
 }
+
+extern typedef ExecuteScriptOption = {code:String, mainWorld:Bool}
 
 extern class WebRequest
 {
