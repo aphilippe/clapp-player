@@ -1,6 +1,6 @@
 {
   "name": "clapp-player",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "A music and video player that work with website (e.g. youtube, etc)",
   "main": "index.html",
   "repository": "https://github.com/aphilippe/clapp-player.git",
