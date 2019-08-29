@@ -19,6 +19,9 @@ class Main {
             webviewConnector.start();
 
             hotkeyManager.registerHotkey("MediaPlayPause", webviewConnector.togglePlayPause);
+            hotkeyManager.registerHotkey("MediaNextTrack", webviewConnector.next);
+            hotkeyManager.registerHotkey("MediaPrevTrack", webviewConnector.previous);
+            hotkeyManager.registerHotkey("F11", webviewConnector.openDevTools);
         };
     }
 

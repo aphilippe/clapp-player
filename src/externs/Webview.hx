@@ -6,6 +6,7 @@ extern class Webview extends js.html.Element
     @:native("request") public var Request(default, null):WebRequest;
     public function executeScript(option:ExecuteScriptOption):Void;
     public function showDevTools(show:Bool):Void;    
+    public function back():Void;
 }
 
 extern typedef ExecuteScriptOption = {code:String, mainWorld:Bool}

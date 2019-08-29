@@ -1,7 +1,6 @@
 package;
 
 import externs.Webview;
-import hotkey.IHotkeyManager;
 
 class WebviewConnector
 {
@@ -28,11 +27,16 @@ class WebviewConnector
                                 class YoutubeClappConnector {
                                     init () {
                                         this.player = document.getElementsByTagName('video')[0];
+                                        this.nextButton = document.getElementsByClassName('ytp-next-button')[0];
                                     }
 
                                     togglePlayPause() {
                                         if (this.player.paused) this.player.play();
                                         else this.player.pause();
+                                    }
+
+                                    next() {
+                                        this.nextButton.click();
                                     }
                                 }
                                 var connector = new YoutubeClappConnector();
@@ -52,5 +56,23 @@ class WebviewConnector
                 connector.togglePlayPause();
             ",
         mainWorld:true});
+    }
+
+    public function next()
+    {
+        _webview.executeScript({code:"
+                connector.next();
+            ",
+            mainWorld:true});
+    }
+
+    public function previous()
+    {
+        _webview.back();
+    }
+
+    public function openDevTools()
+    {
+        _webview.showDevTools(true);
     }
 }
