@@ -2,6 +2,7 @@ package;
 
 import js.Browser;
 import externs.Webview;
+import externs.NW;
 
 class Main {
 
@@ -23,7 +24,11 @@ class Main {
             hotkeyManager.registerHotkey("MediaPrevTrack", webviewConnector.previous);
             hotkeyManager.registerHotkey("F11", webviewConnector.openDevTools);
         };
-    }
 
-    
+        var window = NWWindow.get();
+        window.on("close", function() {
+            hotkeyManager.unregisterAll();
+            window.close(true);
+        });
+    }
 }

@@ -9,6 +9,7 @@ extern class NW
 extern class NWApplication
 {
     public function registerGlobalHotKey(shortcut:NWShortcut):Void;
+    public function unregisterGlobalHotKey(shortcut:NWShortcut):Void;
 }
 
 @:native("nw.Shortcut")
@@ -22,4 +23,12 @@ extern typedef ShortcutOption =
     key : String,
     active : Void->Void,
     failed :Void->Void
+}
+
+@:native("nw.Window")
+extern class NWWindow 
+{
+    public static function get():NWWindow;
+    public function on(key:String, callback:Void->Void):Void;
+    public function close(forcing:Bool):Void ;
 }
