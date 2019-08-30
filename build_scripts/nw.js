@@ -65,8 +65,12 @@ function createBuilder() {
 }
 
 function createPackageFile (isTest) {
+    var processName = process.env.npm_package_name;
+    if (isTest) {
+        processName += "_test";
+    }
     var package = {
-        "name" : process.env.npm_package_name + isTest ? "_test" : "",
+        "name" : processName,
         "version" : process.env.npm_package_version,
         "main": "index.html",
         "window" : {
@@ -76,6 +80,7 @@ function createPackageFile (isTest) {
             "@cliqz/adblocker": "^0.12.0"
         }
     }
+    console.log("Process Name : " + package.name);
 
     fs.writeFileSync("./bin/package.json", JSON.stringify(package), 'utf-8');
 }
