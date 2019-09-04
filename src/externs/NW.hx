@@ -8,6 +8,7 @@ extern class NW
 
 extern class NWApplication
 {
+    public var dataPath(default, null):String;
     public function registerGlobalHotKey(shortcut:NWShortcut):Void;
     public function unregisterGlobalHotKey(shortcut:NWShortcut):Void;
 }

@@ -3,15 +3,22 @@ package;
 import js.Browser;
 import externs.Webview;
 import externs.NW;
+import session.service.SessionServiceFactory;
 
 class Main {
 
     static function main()
     {
         var hotkeyManager = new hotkey.NWHotkeyManager();
+        var sessionService = SessionServiceFactory.create();
 
         Browser.document.body.onload = function(_) {
             var webview:Webview = cast Browser.document.getElementById("mainwebview");
+            var session = sessionService.CurrentSession;
+            if (session.url != null)
+            {
+                webview.src = session.url;
+            }
 
             var webviewAdBlocker = new WebviewAdBlocker(webview);
             webviewAdBlocker.start();
@@ -22,7 +29,7 @@ class Main {
             hotkeyManager.registerHotkey("MediaPlayPause", webviewConnector.togglePlayPause);
             hotkeyManager.registerHotkey("MediaNextTrack", webviewConnector.next);
             hotkeyManager.registerHotkey("MediaPrevTrack", webviewConnector.previous);
-            hotkeyManager.registerHotkey("F11", webviewConnector.openDevTools);
+            // hotkeyManager.registerHotkey("F11", webviewConnector.openDevTools);
         };
 
         var window = NWWindow.get();
