@@ -4,6 +4,7 @@ import js.Browser;
 import externs.Webview;
 import externs.NW;
 import session.service.SessionServiceFactory;
+import webview.WebviewSessionController;
 
 class Main {
 
@@ -15,18 +16,11 @@ class Main {
         Browser.document.body.onload = function(_) {
             var webview:Webview = cast Browser.document.getElementById("mainwebview");
             
-            webview.addEventListener("loadcommit", function(e) {
-                if (e.isTopLevel)
-                {
-                    sessionService.setCurrentSessionUrl(e.url);
-                }
-            });
-            
-            var session = sessionService.CurrentSession;
-            webview.src = session.url;
-
             var webviewAdBlocker = new WebviewAdBlocker(webview);
             webviewAdBlocker.start();
+
+            var webviewSessionController = new WebviewSessionController(webview, sessionService);
+            webviewSessionController.start();            
 
             var webviewConnector = new WebviewConnector(webview);            
             webviewConnector.start();
