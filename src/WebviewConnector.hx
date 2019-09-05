@@ -17,7 +17,7 @@ class WebviewConnector
 
     private function initWebview()
     {
-        _webview.addEventListener("loadstop", 
+        _webview.addEventListener("contentload", 
             function() {
                 _webview.executeScript(
                     {

@@ -14,11 +14,16 @@ class Main {
 
         Browser.document.body.onload = function(_) {
             var webview:Webview = cast Browser.document.getElementById("mainwebview");
+            
+            webview.addEventListener("loadcommit", function(e) {
+                if (e.isTopLevel)
+                {
+                    sessionService.setCurrentSessionUrl(e.url);
+                }
+            });
+            
             var session = sessionService.CurrentSession;
-            if (session.url != null)
-            {
-                webview.src = session.url;
-            }
+            webview.src = session.url;
 
             var webviewAdBlocker = new WebviewAdBlocker(webview);
             webviewAdBlocker.start();

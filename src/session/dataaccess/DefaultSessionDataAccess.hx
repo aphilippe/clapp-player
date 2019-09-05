@@ -24,6 +24,7 @@ class DefaultSessionDataAccess implements SessionDataAccess
 
     public function save(data:SessionData)
     {
-
+        var sessionFilePath = Path.join([NW.App.dataPath, "session"]);
+        FS.writeFileSync(sessionFilePath, haxe.Json.stringify(data));
     }
 }

@@ -2,20 +2,23 @@ package session.service;
 
 import session.Session;
 import session.repository.SessionRepository;
+import session.dataaccess.SessionDataAccess;
 
 class SessionService 
 {
     private var _repository:SessionRepository;
+    private var _sessionDataAccess:SessionDataAccess;
     public var CurrentSession(get, null): Session;
 
-    public function new(repository:SessionRepository) 
+    public function new(repository:SessionRepository, dataaccess:SessionDataAccess) 
     {
         _repository = repository;
+        _sessionDataAccess = dataaccess;
     }
 
-    public function setCurrentUrl(url:String)
+    public function setCurrentSessionUrl(url:String)
     {
-        
+        _sessionDataAccess.save({url:url});
     }
 
     public function save()

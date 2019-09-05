@@ -11,6 +11,6 @@ class SessionServiceFactory
         var dataAccess = new DefaultSessionDataAccess();
         var repository = new SessionRepository(dataAccess);
 
-        return new SessionService(repository);
+        return new SessionService(repository, dataAccess);
     }
 }
