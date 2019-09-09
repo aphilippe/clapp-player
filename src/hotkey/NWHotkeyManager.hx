@@ -1,24 +1,26 @@
 package hotkey;
 
+import externs.nw.App;
+import externs.nw.Shortcut;
+
 class NWHotkeyManager implements IHotkeyManager
 {
-    private var _shortcuts:List<externs.NW.NWShortcut>;
+    private var _shortcuts:List<Shortcut>;
 
     public function new() {
-        _shortcuts = new List<externs.NW.NWShortcut>();
+        _shortcuts = new List<Shortcut>();
     }
 
     public function registerHotkey(key:String, func:Void->Void)
     {
         var option = {
             key: key,
-            active: func,
-            failed: function() {}
+            active: func
         };
 
-        var shortcut = new externs.NW.NWShortcut(option);
+        var shortcut = new Shortcut(option);
 
-        externs.NW.App.registerGlobalHotKey(shortcut);
+        App.registerGlobalHotKey(shortcut);
         _shortcuts.add(shortcut);
     }
 
@@ -26,7 +28,7 @@ class NWHotkeyManager implements IHotkeyManager
     {
         for(shortcut in _shortcuts)
         {
-            externs.NW.App.unregisterGlobalHotKey(shortcut);
+            App.unregisterGlobalHotKey(shortcut);
         }
     }
 }

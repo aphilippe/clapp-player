@@ -2,7 +2,8 @@ package;
 
 import js.Browser;
 import externs.Webview;
-import externs.NW;
+import externs.nw.Shell;
+import externs.nw.Window;
 import session.service.SessionServiceFactory;
 import webview.WebviewSessionController;
 
@@ -32,11 +33,11 @@ class Main {
 
 
             webview.addEventListener("newwindow", function(e){
-                externs.NW.Shell.openExternal(e.targetUrl);
+                Shell.openExternal(e.targetUrl);
             });
         };
 
-        var window = NWWindow.get();
+        var window = Window.get();
         window.on("close", function() {
             hotkeyManager.unregisterAll();
             window.close(true);

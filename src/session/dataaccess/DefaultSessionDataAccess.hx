@@ -2,7 +2,7 @@ package session.dataaccess;
 
 import session.dataaccess.SessionDataAccess; 
 import haxe.io.Path;
-import externs.NW;
+import externs.nw.App;
 import externs.Fs;
 
 class DefaultSessionDataAccess implements SessionDataAccess
@@ -11,7 +11,7 @@ class DefaultSessionDataAccess implements SessionDataAccess
 
     public function get():SessionData
     {
-        var sessionFilePath = Path.join([NW.App.dataPath, "session"]);
+        var sessionFilePath = Path.join([App.dataPath, "session"]);
         if (!FS.existsSync(sessionFilePath))
         {
             return null;
@@ -24,7 +24,7 @@ class DefaultSessionDataAccess implements SessionDataAccess
 
     public function save(data:SessionData)
     {
-        var sessionFilePath = Path.join([NW.App.dataPath, "session"]);
+        var sessionFilePath = Path.join([App.dataPath, "session"]);
         FS.writeFileSync(sessionFilePath, haxe.Json.stringify(data));
     }
 }
