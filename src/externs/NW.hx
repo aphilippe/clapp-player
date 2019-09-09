@@ -4,6 +4,7 @@ package externs;
 extern class NW
 {
     public static var App(default, null): NWApplication;
+    public static var Shell(default, null): NWShell;
 }
 
 extern class NWApplication
@@ -11,6 +12,11 @@ extern class NWApplication
     public var dataPath(default, null):String;
     public function registerGlobalHotKey(shortcut:NWShortcut):Void;
     public function unregisterGlobalHotKey(shortcut:NWShortcut):Void;
+}
+
+extern class NWShell
+{
+    public function openExternal(url:String):Void;
 }
 
 @:native("nw.Shortcut")

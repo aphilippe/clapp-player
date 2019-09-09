@@ -29,6 +29,11 @@ class Main {
             hotkeyManager.registerHotkey("MediaNextTrack", webviewConnector.next);
             hotkeyManager.registerHotkey("MediaPrevTrack", webviewConnector.previous);
             // hotkeyManager.registerHotkey("F11", webviewConnector.openDevTools);
+
+
+            webview.addEventListener("newwindow", function(e){
+                externs.NW.Shell.openExternal(e.targetUrl);
+            });
         };
 
         var window = NWWindow.get();
