@@ -3,9 +3,10 @@ package;
 import js.Browser;
 import externs.Webview;
 import externs.nw.Shell;
-import externs.nw.Window;
 import session.service.SessionServiceFactory;
+import window.service.WindowServiceFactory;
 import webview.WebviewSessionController;
+
 
 class Main {
 
@@ -37,10 +38,10 @@ class Main {
             });
         };
 
-        var window = Window.get();
-        window.on("close", function() {
+        var windowService = WindowServiceFactory.create();
+        windowService.getCurrentWindow().onClosed(function () {
             hotkeyManager.unregisterAll();
-            window.close(true);
+            return true;
         });
     }
 }
