@@ -2,7 +2,7 @@ package;
 
 import js.Browser;
 import externs.Webview;
-import externs.nw.Shell;
+import shell.service.ShellServiceFactory;
 import session.service.SessionServiceFactory;
 import window.service.WindowServiceFactory;
 import webview.WebviewSessionController;
@@ -14,6 +14,7 @@ class Main {
     {
         var hotkeyManager = new hotkey.NWHotkeyManager();
         var sessionService = SessionServiceFactory.create();
+        var shellService = ShellServiceFactory.create();
 
         Browser.document.body.onload = function(_) {
             var webview:Webview = cast Browser.document.getElementById("mainwebview");
@@ -34,7 +35,7 @@ class Main {
 
 
             webview.addEventListener("newwindow", function(e){
-                Shell.openExternal(e.targetUrl);
+                shellService.openExternalUri(e.targetUrl);
             });
         };
 
